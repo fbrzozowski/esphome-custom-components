@@ -267,7 +267,7 @@ async def tmc2209_configure_to_code(config, action_id, template_arg, args):
         cg.add(var.set_inverse_direction(template_))
 
     if (microsteps := config.get(CONF_MICROSTEPS, None)) is not None:
-        template_ = await cg.templatable(microsteps, args, cg.int16)
+        template_ = await cg.templatable(microsteps, args, cg.uint16)
         cg.add(var.set_microsteps(template_))
 
     if (interpolation := config.get(CONF_INTERPOLATION, None)) is not None:
